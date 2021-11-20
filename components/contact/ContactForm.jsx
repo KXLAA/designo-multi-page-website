@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../common/Button";
+import { useFormik } from "formik";
+import { MdOutlineError } from "react-icons/md";
+import * as Yup from "yup";
 
 export const HeroContainer = styled.section`
   z-index: 1;
@@ -51,6 +54,10 @@ const Form = styled.form`
   justify-content: center;
 `;
 
+const InputContainer = styled.div`
+  margin-bottom: 24px;
+`;
+
 const Input = styled.input`
   border-style: hidden;
   border-bottom: solid 1px white;
@@ -60,7 +67,6 @@ const Input = styled.input`
   width: 380px;
   max-width: 100%;
   padding-bottom: 16px;
-  margin-bottom: 24px;
 
   &::placeholder {
     font-weight: 500;
@@ -70,10 +76,15 @@ const Input = styled.input`
     mix-blend-mode: normal;
     opacity: 0.5;
   }
+
+  &:focus {
+    border-bottom: solid 3px white;
+  }
 `;
 
 const TextArea = styled.textarea`
   border-style: hidden;
+  color: #ffffff;
   border-bottom: solid 1px white;
   background: none;
   outline: none;
@@ -89,6 +100,10 @@ const TextArea = styled.textarea`
     mix-blend-mode: normal;
     opacity: 0.5;
   }
+
+  &:focus {
+    border-bottom: solid 3px white;
+  }
 `;
 
 const FormButton = styled(Button)`
@@ -98,7 +113,39 @@ const FormButton = styled(Button)`
   margin-top: 24px;
 `;
 
+const Error = styled.div`
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+
+  i {
+    font-size: 12px;
+    line-height: 26px;
+  }
+`;
+
 export default function ContactForm() {
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      fullName: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Can’t be empty"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      phoneNumber: Yup.number().min(18).required("Can’t be empty"),
+      message: Yup.string().required("Can’t be empty"),
+    }),
+    onSubmit: (values) => console.log(values),
+  });
+
   return (
     <>
       <HeroContainer>
@@ -112,12 +159,75 @@ export default function ContactForm() {
             users, drop us a line.
           </p>
         </Text>
-        <Form>
-          <Input placeholder="Name" />
-          <Input placeholder="Email Address" />
-          <Input placeholder="Phone" />
-          <TextArea placeholder="Your Message" rows="3" />
-          <FormButton>
+        <Form onSubmit={formik.handleSubmit}>
+          <InputContainer>
+            <Input
+              placeholder="Full Name"
+              id="fullName"
+              name="fullName"
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.fullName}
+            />
+            {formik.touched.fullName && formik.errors.fullName ? (
+              <Error>
+                <i>{formik.errors.fullName}</i>
+                <MdOutlineError />
+              </Error>
+            ) : null}
+          </InputContainer>
+
+          <InputContainer>
+            <Input
+              placeholder="Email Address"
+              id="email"
+              name="email"
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <Error>
+                <i>{formik.errors.email}</i>
+                <MdOutlineError />
+              </Error>
+            ) : null}
+          </InputContainer>
+
+          <InputContainer>
+            <Input
+              placeholder="Phone"
+              id="phoneNumber"
+              name="phoneNumber"
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.phoneNumber}
+            />
+            {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+              <Error>
+                <i>{formik.errors.phoneNumber}</i>
+                <MdOutlineError />
+              </Error>
+            ) : null}
+          </InputContainer>
+          <InputContainer>
+            <TextArea
+              placeholder="Your Message"
+              rows="3"
+              id="message"
+              name="message"
+              onChange={formik.handleChange}
+              value={formik.values.message}
+            />
+            {formik.touched.message && formik.errors.message ? (
+              <Error>
+                <i>{formik.errors.message}</i>
+                <MdOutlineError />
+              </Error>
+            ) : null}
+          </InputContainer>
+
+          <FormButton type="submit">
             <p>SUBMIT</p>
           </FormButton>
         </Form>

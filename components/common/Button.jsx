@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.div`
+export const Button = styled.button`
   margin-top: 40px;
   background: var(--white);
   color: var(--dark-gray);
@@ -9,6 +9,8 @@ export const Button = styled.div`
   cursor: pointer;
   display: inline-block;
   transition: all 0.3s ease;
+  border: none;
+  outline: none;
 
   &:hover {
     background: var(--color-secondary);
