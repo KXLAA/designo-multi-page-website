@@ -1,0 +1,31 @@
+.borderRadiusBottom {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.socialMediaIcon {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.socialMediaIcon:hover {
+  color: var(--color-secondary);
+}
+
+.HeroImage {
+  align-self: flex-end;
+}
+
+.ZIndex {
+  z-index: 1;
+}
+
+.borderRadiusImage {
+  border-radius: 15px;
+}
