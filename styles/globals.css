@@ -19,11 +19,6 @@ h1 {
   font-weight: 500;
   font-size: 48px;
   line-height: 48px;
-
-  @media (min-width: 375px) {
-    font-size: 32px;
-    line-height: 36px;
-  }
 }
 
 h2 {
@@ -43,4 +38,11 @@ h3 {
 .border {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
+}
+
+@media only screen and (max-width: 425px) {
+  h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
 }

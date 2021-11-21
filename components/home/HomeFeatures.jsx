@@ -7,16 +7,46 @@ const MainContainer = styled.section`
   gap: 32px;
   margin-bottom: 60px;
   position: relative;
+
+  @media only screen and (max-width: 850px) {
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: 425px) {
+    margin-left: 24px;
+    margin-right: 24px;
+    /* margin-bottom: 118px; */
+  }
 `;
 
 const FeatureContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  @media only screen and (max-width: 850px) {
+    flex-direction: row;
+  }
+
+  @media only screen and (max-width: 425px) {
+    flex-direction: column;
+  }
 `;
 const Text = styled.div`
   color: var(--dark-gray);
   text-align: center;
+
+  @media only screen and (max-width: 850px) {
+    text-align: left;
+    padding-left: 48px;
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 425px) {
+    text-align: center;
+    padding-left: 0px;
+  }
+
   h3 {
     padding-top: 32px;
     padding-bottom: 32px;

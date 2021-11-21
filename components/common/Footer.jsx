@@ -3,6 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import styles from "../../styles/utils.module.css";
 import Link from "next/link";
+import { device } from "./MediaQueries";
 
 import {
   FaFacebookSquare,
@@ -33,11 +34,23 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding-bottom: 1.5rem;
   border-bottom: 1px rgba(255, 255, 255, 0.1) solid;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    border: none;
+  }
 `;
 
 const NavLinks = styled.div`
   display: flex;
   gap: 42px;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px rgba(255, 255, 255, 0.1) solid;
+  }
 
   a {
     font-size: 14px;
@@ -57,23 +70,37 @@ const ContactContainer = styled.div`
   align-items: center;
   padding-top: 1.5rem;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+  }
 `;
 
 const Address = styled.div`
   display: flex;
   flex-direction: column;
   color: rgba(255, 255, 255, 0.1);
+
+  @media ${device.mobile} {
+    padding-bottom: 32px;
+    text-align: center;
+  }
+
   p {
     color: var(--white);
     mix-blend-mode: normal;
     opacity: 0.5;
   }
 `;
-
 const ContactDetail = styled.div`
   display: flex;
   flex-direction: column;
   color: rgba(255, 255, 255, 0.1);
+
+  @media ${device.mobile} {
+    padding-bottom: 32px;
+    text-align: center;
+  }
 
   p {
     font-weight: bold;
@@ -87,6 +114,17 @@ const SocialMediaIcons = styled.div`
   gap: 1rem;
 `;
 
+const Logo = styled.img`
+  width: 202px;
+  cursor: pointer;
+
+  @media ${device.mobile} {
+    margin: 0 auto;
+    padding-bottom: 32px;
+    width: 70%;
+  }
+`;
+
 export default function Footer() {
   return (
     <>
@@ -94,12 +132,9 @@ export default function Footer() {
         <FooterLayout>
           <Nav>
             <Link href="/" passHref>
-              <Image
-                className={styles.cursor}
+              <Logo
                 src="/assets/shared/desktop/logo-light.png"
                 alt="designo-logo"
-                width={202}
-                height={27}
               />
             </Link>
             <NavLinks>

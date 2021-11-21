@@ -9,14 +9,61 @@ import {
   Text,
   ViewProjects,
 } from "../common/PageLinks";
+import styled from "styled-components";
+import { device } from "../common/MediaQueries";
+
+const Container = styled(MainContainer)`
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
+
+  @media ${device.mobile} {
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 118px;
+  }
+`;
+
+const DesktopImage = styled(Image)`
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+
+const TabletImage = styled(Image)`
+  display: none;
+  @media ${device.tablet} {
+    display: block;
+  }
+
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
+const MobileImage = styled(Image)`
+  display: none;
+  @media ${device.mobile} {
+    display: block;
+  }
+`;
 
 export default function HomeLinks() {
   return (
-    <MainContainer marginBottom={160}>
+    <Container marginBottom={160}>
       <Link href="/web-design" passHref>
         <ImageContainer>
-          <Image
+          <DesktopImage
             src="/assets/image-for-links/web-design-large.jpg"
+            alt="Picture of the author"
+          />
+          <TabletImage
+            src="/assets/home/tablet/image-web-design.jpg"
+            alt="Picture of the author"
+          />
+
+          <MobileImage
+            src="/assets/home/mobile/image-web-design.jpg"
             alt="Picture of the author"
           />
           <Overlay />
@@ -35,8 +82,18 @@ export default function HomeLinks() {
         <Link href="/app-design" passHref>
           <ImageContainer style={{ marginBottom: "24px" }}>
             <Overlay />
-            <Image
+            <DesktopImage
               src="/assets/image-for-links/app-design.jpg"
+              alt="Picture of the author"
+            />
+
+            <TabletImage
+              src="/assets/home/tablet/image-app-design.jpg"
+              alt="Picture of the author"
+            />
+
+            <MobileImage
+              src="/assets/home/mobile/image-app-design.jpg"
               alt="Picture of the author"
             />
 
@@ -52,8 +109,18 @@ export default function HomeLinks() {
 
         <Link href="/graphic-design" passHref>
           <ImageContainer>
-            <Image
+            <DesktopImage
               src="/assets/image-for-links/graphic-design.jpg"
+              alt="Picture of the author"
+            />
+
+            <TabletImage
+              src="/assets/home/tablet/image-graphic-design.jpg"
+              alt="Picture of the author"
+            />
+
+            <MobileImage
+              src="/assets/home/mobile/image-graphic-design.jpg"
               alt="Picture of the author"
             />
             <Overlay />
@@ -67,6 +134,6 @@ export default function HomeLinks() {
           </ImageContainer>
         </Link>
       </div>
-    </MainContainer>
+    </Container>
   );
 }

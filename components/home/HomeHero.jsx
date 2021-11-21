@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../common/Button";
+import { device } from "../common/MediaQueries";
 
 const HeroContainer = styled.section`
   background: var(--color-primary);
@@ -11,12 +12,33 @@ const HeroContainer = styled.section`
   padding-left: 97px;
   padding-top: 16px;
   margin-bottom: 160px;
+  overflow: hidden;
+
+  @media ${device.tablet} {
+    text-align: center;
+    flex-direction: column;
+    padding-left: 0px;
+    padding: 97px;
+    padding-bottom: 0px;
+  }
+
+  @media ${device.mobile} {
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 0px;
+    margin-bottom: 118px;
+  }
 `;
 
 const Text = styled.div`
   padding-right: 97px;
   position: relative;
   z-index: 1;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    padding-right: 0px;
+  }
 
   h1 {
     color: var(--white);
@@ -26,16 +48,37 @@ const Text = styled.div`
   p {
     color: var(--white);
     width: 90%;
+
+    @media ${device.tablet} {
+      width: 100%;
+    }
   }
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
   position: relative;
+
+  @media ${device.tablet} {
+    padding-top: 68px;
+  }
 `;
 
 const HeroImage = styled.img`
   z-index: 1;
+
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+
+const HeroImageTablet = styled.img`
+  display: none;
+  z-index: 1;
+  margin: 0 auto;
+  @media ${device.tablet} {
+    display: block;
+  }
 `;
 
 const HeroBgPattern = styled.div`
@@ -53,6 +96,11 @@ const HeroBgPattern = styled.div`
   right: 0px;
   top: 0px;
   border-radius: 100%;
+
+  @media ${device.tablet} {
+    right: -200px;
+    top: -350px;
+  }
 `;
 
 export default function HomeHero() {
@@ -73,6 +121,10 @@ export default function HomeHero() {
       <ImageContainer>
         <HeroImage
           src="/assets/home/desktop/image-hero-phone.png"
+          alt="Picture of the author"
+        />
+        <HeroImageTablet
+          src="/assets/home/tablet/tablethero.png"
           alt="Picture of the author"
         />
         <HeroBgPattern />
