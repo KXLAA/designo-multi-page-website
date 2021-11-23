@@ -24,7 +24,7 @@ const CtaContainer = styled.section`
   @media ${device.mobile} {
     margin-left: 24px;
     margin-right: 24px;
-    padding: 68px 32px;
+    padding: 68px 24px;
   }
 `;
 

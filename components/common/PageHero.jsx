@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../common/MediaQueries";
 
 export const HeroContainer = styled.section`
   padding: 64px 360px;
@@ -10,6 +11,16 @@ export const HeroContainer = styled.section`
   position: relative;
   overflow: hidden;
   margin-bottom: 160px;
+
+  @media ${device.tablet} {
+    padding: 64px 100px;
+  }
+
+  @media ${device.mobile} {
+    padding: 112px 24px;
+    border-radius: 0px;
+    margin-bottom: 118px;
+  }
 `;
 
 export const Text = styled.div`
@@ -21,5 +32,3 @@ export const Text = styled.div`
     padding-bottom: 16px;
   }
 `;
-
-

@@ -23,8 +23,8 @@ const HeroContainer = styled.section`
   }
 
   @media ${device.mobile} {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
     border-radius: 0px;
     margin-bottom: 118px;
   }

@@ -3,6 +3,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import styles from "../../styles/utils.module.css";
 import Location from "../common/Location";
+import { device } from "../common/MediaQueries";
+import { useMediaQuery } from "react-responsive";
 
 const DetailContainer = styled.section`
   z-index: 1;
@@ -14,11 +16,19 @@ const DetailContainer = styled.section`
   position: relative;
   overflow: hidden;
   margin-bottom: 160px;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const DetailContainerFlipped = styled(DetailContainer)`
   flex-direction: row-reverse;
   margin-bottom: 60px;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const Text = styled.div`
@@ -94,6 +104,7 @@ export default function AboutUsDetail() {
           width={2276}
           height={2780}
         />
+
         <Text>
           <BgPattern />
           <BgPattern style={{ left: "-100px" }} />

@@ -3,6 +3,21 @@
   border-top-left-radius: 15px;
 }
 
+@media only screen and (max-width: 850px) {
+  .borderRadiusBottom {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .borderRadiusBottom {
+    border-radius: 0px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+}
+
 .cursor {
   cursor: pointer;
 }
@@ -28,4 +43,39 @@
 
 .borderRadiusImage {
   border-radius: 15px;
+}
+
+.tabletImage {
+  display: none;
+}
+
+.mobileImage {
+  display: none;
+}
+
+@media only screen and (max-width: 850px) {
+  .desktopImage {
+    display: none;
+  }
+
+  .tabletImage {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .tabletImage {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
+  }
+}
+
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
 }

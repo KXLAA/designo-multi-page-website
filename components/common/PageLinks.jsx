@@ -1,9 +1,20 @@
 import styled from "styled-components";
+import { device } from "../common/MediaQueries";
 
 export const MainContainer = styled.section`
   display: flex;
   gap: 30px;
   margin-bottom: ${({ marginBottom }) => `${marginBottom}px`};
+
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
+
+  @media ${device.mobile} {
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 60px;
+  }
 `;
 
 export const ImageContainer = styled.div`

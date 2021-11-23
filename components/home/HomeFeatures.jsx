@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { device } from "../common/MediaQueries";
 
 const MainContainer = styled.section`
   display: flex;
@@ -8,11 +9,11 @@ const MainContainer = styled.section`
   margin-bottom: 60px;
   position: relative;
 
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     flex-direction: column;
   }
 
-  @media only screen and (max-width: 425px) {
+  @media ${device.mobile} {
     margin-left: 24px;
     margin-right: 24px;
     /* margin-bottom: 118px; */
@@ -24,11 +25,11 @@ const FeatureContainer = styled.div`
   align-items: center;
   flex-direction: column;
 
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     flex-direction: row;
   }
 
-  @media only screen and (max-width: 425px) {
+  @media ${device.mobile} {
     flex-direction: column;
   }
 `;
@@ -36,13 +37,13 @@ const Text = styled.div`
   color: var(--dark-gray);
   text-align: center;
 
-  @media only screen and (max-width: 850px) {
+  @media ${device.tablet} {
     text-align: left;
     padding-left: 48px;
     width: 90%;
   }
 
-  @media only screen and (max-width: 425px) {
+  @media ${device.mobile} {
     text-align: center;
     padding-left: 0px;
   }
