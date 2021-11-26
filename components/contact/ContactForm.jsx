@@ -3,26 +3,46 @@ import styled from "styled-components";
 import { Button } from "../common/Button";
 import { useFormik } from "formik";
 import { MdOutlineError } from "react-icons/md";
+import { device } from "../common/MediaQueries";
 import * as Yup from "yup";
 
 export const HeroContainer = styled.section`
   z-index: 1;
   background-color: var(--color-primary);
   border-radius: 15px;
-  padding-left: 95px;
-  padding-right: 95px;
+  padding: 54px 95px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   overflow: hidden;
   margin-bottom: 160px;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    padding: 72px 64px;
+  }
+
+  @media ${device.mobile} {
+    border-radius: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 `;
 
 export const Text = styled.div`
   padding-right: 65px;
   position: relative;
   color: var(--white);
+
+  @media ${device.tablet} {
+    padding-right: 0px;
+    padding-bottom: 24px;
+  }
+
+  @media ${device.mobile} {
+    text-align: center;
+  }
 
   h1 {
     padding-bottom: 16px;
@@ -46,16 +66,16 @@ export const BgPattern = styled.div`
 `;
 
 const Form = styled.form`
-  padding-top: 55px;
-  padding-bottom: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 
 const InputContainer = styled.div`
   margin-bottom: 24px;
+  width: 100%;
 `;
 
 const Input = styled.input`
@@ -64,8 +84,7 @@ const Input = styled.input`
   background: none;
   outline: none;
   color: #ffffff;
-  width: 380px;
-  max-width: 100%;
+  width: 100%;
   padding-bottom: 16px;
 
   &::placeholder {
@@ -88,8 +107,7 @@ const TextArea = styled.textarea`
   border-bottom: solid 1px white;
   background: none;
   outline: none;
-  width: 380px;
-  max-width: 100%;
+  width: 100%;
   resize: none;
 
   &::placeholder {
@@ -111,6 +129,10 @@ const FormButton = styled(Button)`
   align-self: flex-end;
   width: 152px;
   margin-top: 24px;
+
+  @media ${device.mobile} {
+    align-self: center;
+  }
 `;
 
 const Error = styled.div`
@@ -150,7 +172,7 @@ export default function ContactForm() {
     <>
       <HeroContainer>
         <BgPattern />
-        <Text style={{ textAlign: "left" }}>
+        <Text>
           <h1>Contact Us</h1>
           <p>
             Ready to take it to the next level? Let’s talk about your project or
