@@ -20,6 +20,9 @@ const DetailContainer = styled.section`
   @media ${device.tablet} {
     flex-direction: column;
   }
+  @media ${device.mobile} {
+    border-radius: 0px;
+  }
 `;
 
 const DetailContainerFlipped = styled(DetailContainer)`
@@ -31,10 +34,46 @@ const DetailContainerFlipped = styled(DetailContainer)`
   }
 `;
 
+const DesktopImage = styled.img`
+  z-index: 1;
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+
+const TabletImage = styled.img`
+  width: 100%;
+  z-index: 1;
+  display: none;
+  @media ${device.tablet} {
+    display: block;
+  }
+
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
+const MobileImage = styled.img`
+  width: 100%;
+  z-index: 1;
+  display: none;
+  @media ${device.mobile} {
+    display: block;
+  }
+`;
+
 const Text = styled.div`
   padding: 95px;
   position: relative;
   color: var(--color-primary);
+  @media ${device.tablet} {
+    padding: 72px;
+  }
+
+  @media ${device.mobile} {
+    padding: 72px 24px;
+  }
 
   h1 {
     padding-bottom: 16px;
@@ -68,12 +107,18 @@ export default function AboutUsDetail() {
   return (
     <>
       <DetailContainer>
-        <Image
-          className={styles.ZIndex}
+        <DesktopImage
           src="/assets/about/desktop/image-world-class-talent.jpg"
-          alt="illustration-passionate"
-          width={2276}
-          height={2780}
+          alt="world-class-talent"
+        />
+        <TabletImage
+          src="/assets/about/tablet/image-world-class-talent.jpg"
+          alt="world-class-talent"
+        />
+
+        <MobileImage
+          src="/assets/about/mobile/image-world-class-talent.jpg"
+          alt="world-class-talent"
         />
         <Text>
           <BgPattern />
@@ -97,12 +142,19 @@ export default function AboutUsDetail() {
       </DetailContainer>
       <Location />
       <DetailContainerFlipped>
-        <Image
-          className={styles.ZIndex}
+        <DesktopImage
           src="/assets/about/desktop/image-real-deal.jpg"
-          alt="illustration-passionate"
-          width={2276}
-          height={2780}
+          alt="image-real-deal"
+        />
+
+        <TabletImage
+          src="/assets/about/tablet/image-real-deal.jpg"
+          alt="image-real-deal"
+        />
+
+        <MobileImage
+          src="/assets/about/mobile/image-real-deal.jpg"
+          alt="image-real-deal"
         />
 
         <Text>

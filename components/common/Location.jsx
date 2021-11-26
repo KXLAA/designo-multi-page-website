@@ -2,12 +2,18 @@ import styled from "styled-components";
 import React from "react";
 import Image from "next/image";
 import { Button } from "./Button";
+import { device } from "../common/MediaQueries";
 
 const MainContainer = styled.section`
   display: flex;
   justify-content: space-between;
   margin-bottom: 160px;
   position: relative;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    gap: 24px;
+  }
 `;
 
 const LocationContainer = styled.div`

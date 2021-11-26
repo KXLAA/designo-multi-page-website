@@ -119,14 +119,6 @@ export default function AboutUsHero() {
           src="/assets/about/mobile/image-about-hero.jpg"
           alt="illustration-passionate"
         />
-
-        {/* <Image
-          className={styles.desktopImage}
-          src="/assets/about/desktop/image-about-hero.jpg"
-          alt="illustration-passionate"
-          width={2176}
-          height={2180}
-        /> */}
       </HeroContainer>
     </>
   );
