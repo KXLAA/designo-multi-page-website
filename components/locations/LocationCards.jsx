@@ -1,17 +1,41 @@
 import styled from "styled-components";
-import Image from "next/image";
-import styles from "../../styles/utils.module.css";
+import { device } from "../common/MediaQueries";
+import { DesktopImage, TabletImage, MobileImage } from "../common/Images";
 
-import React from "react";
+const MapDesktop = styled(DesktopImage)`
+  width: 350px;
+  height: 326px;
+  border-radius: 15px;
+`;
+const MapTablet = styled(TabletImage)`
+  border-radius: 15px;
+`;
+const MapMobile = styled(MobileImage)`
+  width: 100%;
+  height: 326px;
+  border-radius: 0px;
+`;
 
 const LocationContainer = styled.div`
   display: flex;
   gap: 32px;
   margin-bottom: 32px;
-`;
 
+  @media ${device.tablet} {
+    flex-direction: column-reverse;
+    margin-bottom: 124px;
+  }
+
+  @media ${device.mobile} {
+    gap: 0px;
+  }
+`;
 const LocationContainerFlipped = styled(LocationContainer)`
   flex-direction: row-reverse;
+
+  @media ${device.tablet} {
+    flex-direction: column-reverse;
+  }
 `;
 
 const LocationContainerLast = styled(LocationContainer)`
@@ -25,11 +49,24 @@ const LocationCard = styled.div`
   padding: 97px;
   background: #fdf3f0;
   border-radius: 15px;
+
+  @media ${device.tablet} {
+    padding-left: 72px;
+  }
+
+  @media ${device.mobile} {
+    padding: 94px 24px;
+  }
 `;
 
 const Text = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${device.mobile} {
+    text-align: center;
+  }
+
   h1 {
     color: #e7816b;
     padding-bottom: 24px;
@@ -39,6 +76,11 @@ const Text = styled.div`
 const TextItemContainer = styled.div`
   display: flex;
   gap: 112px;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    gap: 24px;
+  }
 `;
 
 const TextItem = styled.div``;
@@ -91,12 +133,17 @@ export default function LocationCards() {
             </TextItemContainer>
           </Text>
         </LocationCard>
-        <Image
-          className={styles.borderRadiusImage}
+        <MapDesktop
           src="/assets/locations/desktop/image-map-canada.png"
-          alt="illustration-passionate"
-          width={350}
-          height={326}
+          alt="image-map-canada"
+        />
+        <MapTablet
+          src="/assets/locations/tablet/image-map-canada.png"
+          alt="image-map-canada"
+        />
+        <MapMobile
+          src="/assets/locations/desktop/image-map-canada.png"
+          alt="image-map-canada"
         />
       </LocationContainer>
 
@@ -122,12 +169,17 @@ export default function LocationCards() {
             </TextItemContainer>
           </Text>
         </LocationCard>
-        <Image
-          className={styles.borderRadiusImage}
+        <MapDesktop
           src="/assets/locations/desktop/image-map-australia.png"
           alt="image-map-australia"
-          width={350}
-          height={326}
+        />
+        <MapTablet
+          src="/assets/locations/tablet/image-map-australia.png"
+          alt="image-map-australia"
+        />
+        <MapMobile
+          src="/assets/locations/desktop/image-map-australia.png"
+          alt="image-map-australia"
         />
       </LocationContainerFlipped>
 
@@ -145,20 +197,26 @@ export default function LocationCards() {
                 <p>Rhyd-y-fro SA8 9GA</p>
               </TextItem>
 
-              <TextItem>
+              <div>
                 <p style={{ fontWeight: "bold" }}>Contact</p>
                 <p>P : 078 3115 1400</p>
                 <p>M : contact@designo.uk</p>
-              </TextItem>
+              </div>
             </TextItemContainer>
           </Text>
         </LocationCard>
-        <Image
-          className={styles.borderRadiusImage}
+        <MapDesktop
           src="/assets/locations/desktop/image-map-united-kingdom.png"
-          alt="image-map-australia"
-          width={350}
-          height={326}
+          alt="image-map-united-kingdom"
+        />
+        <MapTablet
+          src="/assets/locations/tablet/image-map-uk.png"
+          alt="image-map-united-kingdom"
+        />
+
+        <MapMobile
+          src="/assets/locations/desktop/image-map-united-kingdom.png"
+          alt="image-map-united-kingdom"
         />
       </LocationContainerLast>
     </section>
