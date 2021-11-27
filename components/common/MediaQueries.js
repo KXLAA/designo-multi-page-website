@@ -5,11 +5,11 @@ export const Desktop = ({ children }) => {
   return isDesktop ? children : null;
 };
 export const Tablet = ({ children }) => {
-  const isTablet = useMediaQuery({ maxWidth: 850 });
+  const isTablet = useMediaQuery({ minWidth: 475 });
   return isTablet ? children : null;
 };
 export const Mobile = ({ children }) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 475 });
   return isMobile ? children : null;
 };
 
@@ -19,7 +19,7 @@ export const Default = ({ children }) => {
 };
 
 const sizes = {
-  mobile: "425px",
+  mobile: "475px",
   tablet: "850px",
   laptop: "1440px",
   desktop: "2560px",

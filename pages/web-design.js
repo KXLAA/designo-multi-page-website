@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import { Layout } from "../components/common/Layout";
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import Cta from "../components/common/Cta";
+import Header from "../components/common/header/Header";
+import Footer from "../components/common/footer/Footer";
+import Cta from "../components/common/cta/Cta";
 import WebDesignHero from "../components/web-design/WebDesignHero";
 import WebDesignProjects from "../components/web-design/WebDesignProjects";
 import WebDesignLinks from "../components/web-design/WebDesignLinks";

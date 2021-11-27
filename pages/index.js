@@ -1,9 +1,11 @@
 import Head from "next/head";
-import styles from "../styles/utils.module.css";
 import { Layout } from "../components/common/Layout";
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
-import HomePage from "../components/home/HomePage";
+import Header from "../components/common/header/Header";
+import Footer from "../components/common/footer/Footer";
+import Cta from "../components/common/cta/Cta";
+import HomeHero from "../components/home/HomeHero";
+import HomeLinks from "../components/home/HomeLinks";
+import HomeFeatures from "../components/home/HomeFeatures";
 
 export default function Home() {
   return (
@@ -16,7 +18,10 @@ export default function Home() {
 
       <Layout>
         <Header />
-        <HomePage />
+        <HomeHero />
+        <HomeLinks />
+        <HomeFeatures />
+        <Cta />
       </Layout>
       <Footer />
     </>

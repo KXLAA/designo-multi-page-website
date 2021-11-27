@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Mobile, Tablet } from "./MediaQueries";
 
 export const BgPattern = () => {
   const Pattern = styled.div`
@@ -51,14 +52,31 @@ export const BgPatternSmall = () => {
 
   return (
     <>
-      <Pattern style={{ transform: "rotate(-90deg)" }} />
-      <Pattern style={{ right: "291px" }} />
+      <Tablet>
+        <Pattern style={{ transform: "rotate(-90deg)" }} />
+      </Tablet>
 
-      <Pattern style={{ top: "162px", transform: "rotate(-90deg)" }} />
-      <Pattern style={{ top: "162px", right: "291px" }} />
-      <Pattern
-        style={{ top: "162px", right: "580px", transform: "rotate(90deg)" }}
-      />
+      <Tablet>
+        <Pattern style={{ right: "295px" }} />
+      </Tablet>
+
+      <Tablet>
+        <Pattern style={{ top: "200px", transform: "rotate(-90deg)" }} />
+      </Tablet>
+
+      <Tablet>
+        <Pattern style={{ top: "200px", right: "291px" }} />
+      </Tablet>
+
+      <Mobile>
+        <Pattern style={{ right: "15px", top: "-60px" }} />
+      </Mobile>
+
+      <Mobile>
+        <Pattern
+          style={{ top: "250px", right: "35px", transform: "rotate(-90deg)" }}
+        />
+      </Mobile>
     </>
   );
 };

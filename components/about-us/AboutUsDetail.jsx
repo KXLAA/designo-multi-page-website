@@ -1,7 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import styled from "styled-components";
-import Location from "../common/Location";
+import Location from "../common/location/Location";
 import { device } from "../common/MediaQueries";
 
 const DetailContainer = styled.section`

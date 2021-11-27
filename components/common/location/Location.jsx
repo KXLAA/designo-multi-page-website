@@ -1,40 +1,12 @@
 import styled from "styled-components";
 import React from "react";
 import Image from "next/image";
-import { Button } from "./Button";
-import { device } from "../common/MediaQueries";
-
-const MainContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 160px;
-  position: relative;
-
-  @media ${device.tablet} {
-    flex-direction: column;
-    gap: 24px;
-  }
-`;
-
-const LocationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-const Text = styled.div`
-  color: var(--dark-gray);
-  text-align: center;
-  h3 {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-`;
-
-const OrangeButton = styled(Button)`
-  background: var(--color-primary);
-  color: var(--white);
-  margin: 0px;
-`;
+import {
+  MainContainer,
+  LocationContainer,
+  Text,
+  OrangeButton,
+} from "./Location.styled";
 
 export default function Location() {
   return (

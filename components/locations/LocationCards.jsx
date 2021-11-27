@@ -4,7 +4,7 @@ import { DesktopImage, TabletImage, MobileImage } from "../common/Images";
 
 const MapDesktop = styled(DesktopImage)`
   width: 350px;
-  height: 326px;
+  aspect-ratio: 1/1;
   border-radius: 15px;
 `;
 const MapTablet = styled(TabletImage)`
@@ -46,12 +46,14 @@ const LocationCard = styled.div`
   position: relative;
   overflow: hidden;
   flex: 1;
-  padding: 97px;
+  align-self: center;
+  padding: 100px;
   background: #fdf3f0;
   border-radius: 15px;
 
   @media ${device.tablet} {
     padding-left: 72px;
+    width: 100%;
   }
 
   @media ${device.mobile} {
@@ -83,7 +85,9 @@ const TextItemContainer = styled.div`
   }
 `;
 
-const TextItem = styled.div``;
+const TextItem = styled.div`
+  width: 100%;
+`;
 
 const BgPattern01 = styled.div`
   position: absolute;
