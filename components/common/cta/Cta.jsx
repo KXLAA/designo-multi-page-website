@@ -15,6 +15,7 @@ export default function Cta() {
           our expertise can help your business grow.
         </p>
       </Text>
+
       <Link href="/contact" passHref>
         <Button style={{ zIndex: "1" }}>
           <p>GET IN TOUCH</p>

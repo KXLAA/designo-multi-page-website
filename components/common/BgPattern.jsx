@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Mobile, Tablet } from "./MediaQueries";
+import { useMediaQuery } from "react-responsive";
 
 export const BgPattern = () => {
   const Pattern = styled.div`
@@ -35,6 +36,9 @@ export const BgPattern = () => {
 };
 
 export const BgPatternSmall = () => {
+  const Tablet = useMediaQuery({ query: "(min-width: 475px)" });
+  const Mobile = useMediaQuery({ query: "(max-width: 475px)" });
+
   const Pattern = styled.div`
     background: linear-gradient(
       90deg,
@@ -52,7 +56,25 @@ export const BgPatternSmall = () => {
 
   return (
     <>
-      <Tablet>
+      {Tablet && <Pattern style={{ transform: "rotate(-90deg)" }} />}
+
+      {Tablet && <Pattern style={{ right: "295px" }} />}
+
+      {Tablet && (
+        <Pattern style={{ top: "200px", transform: "rotate(-90deg)" }} />
+      )}
+
+      {Tablet && <Pattern style={{ top: "200px", right: "291px" }} />}
+
+      {Mobile && <Pattern style={{ right: "15px", top: "-60px" }} />}
+
+      {Mobile && (
+        <Pattern
+          style={{ top: "250px", right: "35px", transform: "rotate(-90deg)" }}
+        />
+      )}
+
+      {/* <Tablet>
         <Pattern style={{ transform: "rotate(-90deg)" }} />
       </Tablet>
 
@@ -76,7 +98,7 @@ export const BgPatternSmall = () => {
         <Pattern
           style={{ top: "250px", right: "35px", transform: "rotate(-90deg)" }}
         />
-      </Mobile>
+      </Mobile> */}
     </>
   );
 };

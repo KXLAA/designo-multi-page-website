@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { device } from "../MediaQueries";
+import { device } from "./MediaQueries";
+import Link from "next/link";
+import { Button } from "./Button";
+import { BgPatternSmall } from "./BgPattern";
 
 export const CtaContainer = styled.section`
   padding: 72px 95px;
@@ -42,3 +45,23 @@ export const Text = styled.div`
     padding-bottom: 16px;
   }
 `;
+
+export default function Cta() {
+  return (
+    <CtaContainer>
+      <Text>
+        <h1>Let’s talk about your project</h1>
+        <p>
+          Ready to take it to the next level? Contact us today and find out how
+          our expertise can help your business grow.
+        </p>
+      </Text>
+
+      <Link href="/contact" passHref>
+        <Button style={{ zIndex: "1" }}>
+          <p>GET IN TOUCH</p>
+        </Button>
+      </Link>
+    </CtaContainer>
+  );
+}
